@@ -13,7 +13,7 @@ import AppBanner from "../appBanner/AppBanner";
 const SinglePage = ({Component, dataType}) => {
         const {id} = useParams();
         const [data, setData] = useState(null);
-        const {loading, error, getComic, getCharacter, clearError} = useMarvelService();
+        const {loading, error, getComics, getCharacter, clearError} = useMarvelService();
 
         useEffect(() => {
             updateData()
@@ -24,7 +24,7 @@ const SinglePage = ({Component, dataType}) => {
 
             switch (dataType) {
                 case 'comic':
-                    getComic(id).then(onDataLoaded);
+                    getComics(id).then(onDataLoaded);
                     break;
                 case 'character':
                     getCharacter(id).then(onDataLoaded);
